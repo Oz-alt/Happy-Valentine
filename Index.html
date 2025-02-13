@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Message</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffebee;
+            text-align: center;
+            padding: 50px;
+            background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+        }
+        h1 {
+            color: #ff4081;
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ff4081;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 300px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            border-color: #ff80ab;
+            outline: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff80ab;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #d5006d;
+            display: none;
+            border: 5px solid #ff4081;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: bounce 0.5s;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Happy Valentine's Day!</h1>
+    <p>Enter your name to receive a sweet message!</p>
+    <input type="text" id="nameInput" placeholder="Your name...">
+    <button onclick="showMessage()">Send</button>
+
+    <div class="message" id="message"></div>
+
+    <script>
+        function showMessage() {
+            const name = document.getElementById('nameInput').value;
+            const messageDiv = document.getElementById('message');
+
+            if (name) {
+                const messages = [
+                    `"Hi ${name}! 👋
+
+Happy Valentine’s Day! Just a little reminder that today isn’t only about couples—it’s about love in all forms. Whether it’s for friends, family, or even yourself, love is always worth celebrating. 💛
+
+If no one’s told you yet today: You are valued, you are appreciated, and the world is better with you in it. Seriously. You deserve kindness, happiness, and all the good things life has to offer.
+
+So take a moment today to appreciate yourself too. You’ve made it this far, and that’s something to be proud of. 💙
+
+Sending you all love and good vibes today—hope you feel it!"`
+                ];
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                messageDiv.innerHTML = randomMessage;
+                messageDiv.style.display = 'block';
+            } else {
+                alert('Please enter your name!');
+            }
+        }
+    </script>
+
+</body>
+</html>
